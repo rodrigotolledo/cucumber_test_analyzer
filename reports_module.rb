@@ -9,7 +9,7 @@ ARGV.each do
 	@percentage_user_input = ARGV[0]
 	@total_of_existing_tests = ARGV[1]
 	@total_of_pending_tests = ARGV[2]
-	@percentage_of_pending_tests = ARGV[3]
+	@percentage_of_pending_tests = ARGV[3]+"%"
 end
 
 def convert_erb_to_html_file

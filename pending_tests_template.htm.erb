@@ -10,6 +10,15 @@ Total of pending tests found: <%= @total_of_pending_tests %>
 <br><br>
 Percentage of pending tests: <%= @percentage_of_pending_tests %>
 <br><br>
+<% if @percentage_of_pending_tests > @percentage_user_input %>
+	<div style="background-color:red;border:1px solid black;padding:10px;">
+	You should spend some time to review your test suite. It seems you have too many pending tests!
+	</div>
+<% else %>
+	<div style="background-color:green;border:1px solid black;padding:10px;">
+	It seems you don't have too many pending tests. Good work! ;)
+	</div>
+<% end %>
 </body>
 </html>
 
