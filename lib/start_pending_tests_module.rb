@@ -13,5 +13,3 @@ percentage_of_pending_tests = pendingTests.calculate_percentage_of_pending_tests
 Dir.chdir(pendingTests.current_directory)
 reports = Reports.new
 reports.generate_html_report_for_pending_tests(pendingTests.percentage_user_input, total_of_existing_tests, total_of_pending_tests, percentage_of_pending_tests)
-
-
