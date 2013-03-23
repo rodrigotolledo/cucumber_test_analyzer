@@ -10,8 +10,6 @@ class FileHandler
 		puts "Step Definitions files to be analyzed: #{@all_ruby_step_definitions_files}."
 	end
 
-	#def verify_how_many_tests_exist(step_definitions_files)
-
 	def verify_how_many_tests_exist
 		@amount_of_existing_tests = verify_how_many("Given")
 		return @amount_of_existing_tests

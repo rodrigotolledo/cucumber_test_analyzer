@@ -34,10 +34,8 @@ class PendingTests < FileHandler
 		puts ""
 	end
 
-	def verify_how_many_pending_tests_exist(step_definitions_files)
+	def verify_how_many_pending_tests_exist
 		@amount_of_pending_tests = verify_how_many("pending")
 		return @amount_of_pending_tests
 	end
 end
-
-
