@@ -3,12 +3,12 @@
 def print_welcome_message
 	puts "
 Welcome to the Cucumber Tests Analyzer!
-  Type the number of the option you'd like to use:
-  [1] Pending Tests Module
-  [2] Assertions Module
-  [3] Slow Tests Module
-  [4] Extensive Tests Module
-  [5] Time Frame Tests Module
+  Type the number of the Module you'd like to use:
+  [1] Pending Tests
+  [2] Assertions
+  [3] Slow Tests
+  [4] Extensive Tests
+  [5] Time Frame Tests
   [?] Help
 	"
 	print "> "
@@ -25,13 +25,13 @@ when "1"
 when "2" 
 	system("ruby start_assertions_module.rb")
 when "3" 
-	puts "Voce selecionou opcao 3"
+	puts "Placeholder for 3."
 when "4" 
-	puts "Voce selecionou opcao 4"
+	puts "Placeholder for 4."
 when "5" 
-	puts "Voce selecionou opcao 5"
+	puts "Placeholder for 5."
 when "?"
-	puts "Help Description... bla bla bla."
+	puts "Placeholder for Help."
 else
-	puts "Essa opcao nao existe!"
+	puts "This option doesn't exist. Type '?' for help."
 end
