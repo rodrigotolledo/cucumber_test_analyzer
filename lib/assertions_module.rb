@@ -25,7 +25,9 @@ class Assertions < FileHandler
 		puts ""
 	end
 
-	def verify_how_many_assertions_exist(step_definitions_files)
+	#	def verify_how_many_assertions_exist(step_definitions_files)
+
+	def verify_how_many_assertions_exist
 		@amount_of_assertions = verify_how_many(".should")
 		return @amount_of_assertions
 	end
