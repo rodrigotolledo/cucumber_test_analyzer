@@ -1,0 +1,19 @@
+<html>
+<body>
+<h1>Slow Tests Module - Report</h1>
+
+These are the time execution average of your Test Scenarios: 
+<br><br>
+<% @scenarios_info.each do |scenario| %>
+<ul>
+<li>Feature file: <%= scenario[:feature_file] %> </li>
+<br>
+<li>Scenario name: <%= scenario[:scenario_name] %> (line <%= scenario[:scenario_line] %>) </li>
+<br>
+<li> Execution time: <%= scenario[:time] %> </li>
+</ul>
+<br>
+<% end %>
+</body>
+</html>
+
