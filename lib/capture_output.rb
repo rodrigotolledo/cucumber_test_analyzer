@@ -1,5 +1,7 @@
 #!/usr/bin/ruby -w
 
+require 'stringio'
+
 class CaptureOutput
 	def capture_stdout(&block)
 		original_stdout = $stdout

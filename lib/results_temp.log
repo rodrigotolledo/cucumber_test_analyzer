@@ -1,0 +1,14 @@
+Feature: Addition
+  In order to avoid silly mistakes
+  As a math idiot
+  I want to be told the sum of two numbers
+
+  Scenario: Add two numbers FILE2 SC3           # /Users/Thoughtworks/Documents/my_stuff/TCC2-here-we-go/test_app/step_definitions/calculator/addition2.feature:18
+    Given I have entered 50 into the calculator # /Users/Thoughtworks/Documents/my_stuff/TCC2-here-we-go/test_app/step_definitions/calculator/addition_steps.rb:5
+    And I have entered 70 into the calculator   # /Users/Thoughtworks/Documents/my_stuff/TCC2-here-we-go/test_app/step_definitions/calculator/addition_steps.rb:5
+    When I press add                            # /Users/Thoughtworks/Documents/my_stuff/TCC2-here-we-go/test_app/step_definitions/calculator/addition_steps.rb:9
+    Then the result should be 120 on the screen # /Users/Thoughtworks/Documents/my_stuff/TCC2-here-we-go/test_app/step_definitions/calculator/addition_steps.rb:13
+
+1 scenario (1 passed)
+4 steps (4 passed)
+0m0.005s
