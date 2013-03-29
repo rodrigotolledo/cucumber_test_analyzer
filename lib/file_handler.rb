@@ -1,5 +1,7 @@
 #!/usr/bin/ruby -w
 
+#TODO: refactor these methods.
+
 class FileHandler
 
 	def open_step_definitions_files(step_definitions_path)
@@ -8,6 +10,14 @@ class FileHandler
 		#TODO: add exception handler
 		@all_ruby_step_definitions_files = Dir.glob("**/*.rb")
 		puts "Step Definitions files to be analyzed: #{@all_ruby_step_definitions_files}."
+	end
+
+	def open_feature_files(feature_files_path)
+		@current_directory = Dir.pwd
+		Dir.chdir(feature_files_path)
+		#TODO: add exception handler
+		@all_feature_files = Dir.glob("**/*.feature")
+		puts "Feature files to be analyzed: #{@all_feature_files}."
 	end
 
 	def verify_how_many_tests_exist

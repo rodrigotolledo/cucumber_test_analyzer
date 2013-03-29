@@ -25,7 +25,7 @@ when "1"
 when "2" 
 	system("ruby start_assertions_module.rb")
 when "3" 
-	puts "Placeholder for 3."
+	system("ruby start_slow_tests_module.rb")
 when "4" 
 	puts "Placeholder for 4."
 when "5" 

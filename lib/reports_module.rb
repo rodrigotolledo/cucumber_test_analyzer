@@ -35,6 +35,7 @@ class Reports
 	def generate_html_report_for_slow_tests(param1)
 		print_user_message
 		@scenarios_info = param1
+		#TODO: generate reports in a specific reports folder
 		template_file = File.open("../templates/slow_tests_template.htm.erb", 'r').read
 		erb = ERB.new(template_file)
 		File.open("../reports/slow_tests_report.htm", 'w+') { |file| file.write(erb.result(binding)) }
