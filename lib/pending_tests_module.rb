@@ -17,21 +17,27 @@ class PendingTests < FileHandler
 	end
 
 	def calculate_percentage_of_pending_tests(total_of_tests, total_of_pending_tests)
-		percentage_of_pending_tests = percent_of(total_of_pending_tests, total_of_tests)
+		percentage_of_pending_tests = percent_of(total_of_pending_tests, total_of_tests) + "%"
 		return percentage_of_pending_tests
 	end
 
 	def print_user_interaction
+		puts ""
 		puts "[Running pending_tests_module.rb...]"
 		puts "What percentage of pending tests is considered harmful for you? [example: 10%, 20%, 50%, etc.]"
 		print "> "
 		@percentage_user_input = gets.chomp
-		#TODO: add exception handler
-		puts "What's the directory path of your step_definitions? [example: /Users/Rodrigo/myApp/step_definitions]"
-		print "> "
-		@step_definitions_path = gets.chomp
-		#TODO: add exception handler
-		puts ""
+		if not @percentage_user_input.match(/^(100|[0-9]{1,2})%$/)
+			system("clear")
+			puts "Invalid percentage. Examples of correct use: 5%, 23%, 50%, etc. "
+			print_user_interaction
+		else
+			puts "What's the directory path of your step_definitions? [example: /Users/Rodrigo/myApp/step_definitions]"
+			print "> "
+			@step_definitions_path = gets.chomp
+			#TODO: add exception handler
+			puts ""
+		end
 	end
 
 	def verify_how_many_pending_tests_exist
