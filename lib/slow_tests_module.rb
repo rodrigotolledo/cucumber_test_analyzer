@@ -1,7 +1,5 @@
 #!/usr/bin/ruby -w
 
-#TODO: sort and print Scenarios time execution by slowness.
-
 require "./reports_module"
 require "./file_handler"
 
@@ -17,6 +15,7 @@ class SlowTests < FileHandler
 	def print_user_interaction
 		puts "What's the directory path of your .feature files? [example: /Users/Rodrigo/myApp/features]"
 		print "> "         
+		#TODO: exception handler.
 		@feature_files_path = gets.chomp
 		puts ""		
 	end
@@ -40,7 +39,8 @@ class SlowTests < FileHandler
 			results = File.open("results_temp.log")
 			scenario_info[:time] = results.readlines.last
 		end
-		#puts parse_scenarios_info(@scenarios_info)
+		@scenarios_info = parse_scenarios_info(@scenarios_info)
+		@scenarios_info = sort_scenarios_by_slowness(@scenarios_info)
 	end
 
 	def parse_scenarios_info(scenarios_info)
@@ -50,4 +50,9 @@ class SlowTests < FileHandler
 		end
 		return scenarios_info
 	end
+
+	def sort_scenarios_by_slowness(scenarios_info)
+		return scenarios_info.sort_by {|scenario| scenario[:time]}.reverse
+	end
+
 end
