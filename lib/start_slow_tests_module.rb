@@ -6,8 +6,8 @@ require "./file_handler"
 
 slowTests = SlowTests.new
 slowTests.print_user_interaction
-slowTests.open_feature_files(slowTests.feature_files_path)
-slowTests.get_scenarios_info(slowTests.all_feature_files)
+slowTests.open_files(slowTests.feature_files_path, "feature")
+slowTests.get_scenarios_info
 slowTests.run_scenarios
 Dir.chdir(slowTests.current_directory)
 reports = Reports.new
