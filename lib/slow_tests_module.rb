@@ -6,11 +6,10 @@ require "./reports_module"
 require "./file_handler"
 
 class SlowTests < FileHandler
-	attr_accessor(:feature_files_path, :all_feature_files, :scenarios_info, :current_directory)
+	attr_accessor(:feature_files_path, :scenarios_info, :current_directory)
 
 	def inititalize
 		@feature_files_path = feature_files_path
-		@all_feature_files = all_feature_files
 		@scenarios_info = scenarios_info
 		@current_directory = current_directory
 	end
@@ -22,9 +21,9 @@ class SlowTests < FileHandler
 		puts ""		
 	end
 
-	def get_scenarios_info(all_feature_files)
+	def get_scenarios_info
 		@scenarios_info = []
-		all_feature_files.each do |file|
+		@all_files.each do |file|
 			line_counter = 0
 			File.open(file).each_line do |line|
 				line_counter = line_counter + 1
