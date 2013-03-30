@@ -21,6 +21,7 @@ class PendingTests < FileHandler
 		return percentage_of_pending_tests
 	end
 
+	# Refactory this frankenstein...
 	def print_user_interaction
 		puts ""
 		puts "[Running pending_tests_module.rb...]"
@@ -35,8 +36,20 @@ class PendingTests < FileHandler
 			puts "What's the directory path of your step_definitions? [example: /Users/Rodrigo/myApp/step_definitions]"
 			print "> "
 			@step_definitions_path = gets.chomp
-			#TODO: add exception handler
-			puts ""
+			if File.directory?(@step_definitions_path)
+				files = Dir.glob("**/*.rb")
+				while files.empty?
+					puts "Sorry, there isn't any step definitions (*.rb) files inside this path. Please type a valid path that contains your step definitions."
+					print "> "
+					@step_definitions_path = gets.chomp
+				end
+			else
+				while not File.directory?(@step_definitions_path)
+					puts "This path doesn't exist. Please type a valid path that contains your step_definitions."
+					print "> "
+					@step_definitions_path = gets.chomp
+				end
+			end
 		end
 	end
 
