@@ -21,7 +21,7 @@ class PendingTests < FileHandler
 		return percentage_of_pending_tests
 	end
 
-	# Refactory this frankenstein...
+	#TODO: Refactory this frankenstein...
 	def print_user_interaction
 		puts ""
 		puts "[Running pending_tests_module.rb...]"
