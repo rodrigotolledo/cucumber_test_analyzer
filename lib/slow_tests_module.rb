@@ -12,11 +12,28 @@ class SlowTests < FileHandler
 		@current_directory = current_directory
 	end
 
+	#TODO: Refactory this frankenstein...
 	def print_user_interaction
 		puts "What's the directory path of your .feature files? [example: /Users/Rodrigo/myApp/features]"
 		print "> "         
-		#TODO: exception handler.
 		@feature_files_path = gets.chomp
+		if File.directory?(@feature_files_path)
+			@current_directory = Dir.pwd
+			Dir.chdir(@feature_files_path)
+			files = Dir.glob("**/*.feature")
+			while files.empty?
+				puts "Sorry, there isn't any feature files (*.feature) inside this path. Please type a valid path that contains your feature files."
+				print "> "
+				@feature_files_path = gets.chomp
+			end
+			Dir.chdir(@current_directory)
+		else
+			while not File.directory?(@feature_files_path)
+				puts "This path doesn't exist. Please type a valid path that contains your feature files."
+				print "> "
+				@feature_files_path = gets.chomp
+			end 
+		end
 		puts ""		
 	end
 
