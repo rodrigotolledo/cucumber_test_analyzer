@@ -18,7 +18,7 @@ class Assertions < FileHandler
 		print "> "
 		@quantity_of_assertions_user_input = gets.chomp
 		#TODO: fix regular expression to don't allow '00'
-		if not @quantity_of_assertions_user_input.match(/^((?!0$)[0-9]{1,2})$/)
+		if not @quantity_of_assertions_user_input.match(/^[1-9][0-9]?$/)
 			system("clear")
 			puts "Invalid entry. Please, type a quantity of assertions between 1 and 99."
 			print_user_interaction
