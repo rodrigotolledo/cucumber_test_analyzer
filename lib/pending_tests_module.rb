@@ -5,15 +5,15 @@ require "./file_handler"
 class PendingTests < FileHandler
 	attr_accessor(:step_definitions_path, :all_ruby_step_definitions_files, :current_directory, :percentage_user_input)
 
-	def percent_of(total_pending, total_tests)
-		"%.1f" % (total_pending.to_f / total_tests.to_f * 100.0)
-	end
-
 	def initialize
 		@step_definitions_path = step_definitions_path
 		@all_ruby_step_definitions_files = all_ruby_step_definitions_files
 		@current_directory = current_directory
 		@percentage_user_input = percentage_user_input
+	end
+
+	def percent_of(total_pending, total_tests)
+		"%.1f" % (total_pending.to_f / total_tests.to_f * 100.0)
 	end
 
 	def calculate_percentage_of_pending_tests(total_of_tests, total_of_pending_tests)
@@ -49,11 +49,7 @@ class PendingTests < FileHandler
 		if(is_path_a_directory?)
 			files = Dir.glob("**/*.rb")
 		end
-		while files.empty?
-			puts "Sorry, there isn't any step definitions (*.rb) files inside this path. Please type a valid path that contains your step definitions."
-			print "> "
-			@step_definitions_path = gets.chomp
-		end
+		while_files_is_empty_then_read_again(files)
 	end
 
 	def is_path_a_directory?
@@ -63,6 +59,14 @@ class PendingTests < FileHandler
 			@step_definitions_path = gets.chomp
 		end
 		return true
+	end
+
+	def while_files_is_empty_then_read_again(files)
+		while files.empty?
+			puts "Sorry, there isn't any step definitions (*.rb) files inside this path. Please type a valid path that contains your step definitions."
+			print "> "
+			@step_definitions_path = gets.chomp
+		end
 	end
 
 	def print_user_interaction
