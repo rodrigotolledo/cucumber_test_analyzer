@@ -1,6 +1,5 @@
 #!/usr/bin/ruby -w
 
-require "./reports_module"
 require "./file_handler"
 
 class SlowTests < FileHandler
