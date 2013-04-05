@@ -4,6 +4,7 @@
 *.swo
 .bundle
 .config
+.lock
 coverage
 InstalledFiles
 lib/bundler/man
