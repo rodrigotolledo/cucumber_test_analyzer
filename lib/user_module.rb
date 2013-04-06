@@ -1,6 +1,7 @@
 #!/usr/bin/ruby -w
 
 def print_welcome_message
+	system("clear")
 	puts "
 Welcome to the Cucumber Tests Analyzer!
   Type the number of the Module you'd like to use:
