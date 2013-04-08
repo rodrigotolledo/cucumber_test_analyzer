@@ -37,4 +37,13 @@ class Reports
 		erb = ERB.new(template_file)
 		File.open("../reports/slow_tests_report.htm", 'w+') { |file| file.write(erb.result(binding)) }
 	end
+
+	def generate_html_report_for_extensive_tests(scenarios_info, maximum_number_of_lines_user_input)
+		print_user_message
+		@scenarios_info = scenarios_info
+		@maximum_number_of_lines_user_input = maximum_number_of_lines_user_input
+		template_file = File.open("../templates/extensive_tests_template.htm.erb", 'r').read
+		erb = ERB.new(template_file)
+		File.open("../reports/extensive_tests_report.htm", 'w+') {|file| file.write(erb.result(binding))}
+	end
 end
