@@ -1,0 +1,31 @@
+<html>
+<body>
+<h1>Extensive Tests Module - Report</h1>
+These are the tests that have more than <%= @maximum_number_of_lines_user_input %> lines per Scenario:
+<br><br>
+<% @scenarios_info.each do |scenario| %>
+	<% if scenario[:quantity_of_steps] > @maximum_number_of_lines_user_input.to_i %>
+		<ul>
+		<div style="background-color:yellow;border:1px solid black;padding:10px;">
+		<li>Feature file: <%= scenario[:feature_file] %> </li>
+		</div>
+		<br>
+		<div style="background-color:yellow;border:1px solid black;padding:10px;">
+		<li><%= scenario[:scenario_name] %> (line <%= scenario[:scenario_line] %>) </li>
+		</div>
+		<br>
+		<div style="background-color:yellow;border:1px solid black;padding:10px;">
+		<li> Quantity of lines: <%= scenario[:quantity_of_steps] %> </li>
+		</div>
+		</ul>
+		<br>
+	<% end %>
+<% end %>
+<!-- Fix me here! -->
+<div style="background-color:green;border:1px solid black;padding:10px;">
+<li>You don't have any Scenario with more than <%= @maximum_number_of_lines_user_input %> lines! ;)</li>
+</div>
+</body>
+</html>
+
+
