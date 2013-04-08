@@ -70,5 +70,4 @@ class SlowTests < FileHandler
 	def sort_scenarios_by_slowness(scenarios_info)
 		return scenarios_info.sort_by {|scenario| scenario[:time]}.reverse
 	end
-
 end
