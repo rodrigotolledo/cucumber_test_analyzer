@@ -22,7 +22,7 @@ Welcome to the Cucumber Tests Analyzer!
 	when "3" 
 		system("ruby start_slow_tests_module.rb")
 	when "4" 
-		puts "Placeholder for 4."
+		system("ruby start_extensive_tests_module.rb")
 	when "5" 
 		puts "Placeholder for 5."
 	when "?"
