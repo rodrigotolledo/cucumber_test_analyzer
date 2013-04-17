@@ -1,7 +1,7 @@
 <html>
 <body>
 <h1>Extensive Tests Module - Report</h1>
-These are the tests that have more than <%= @maximum_number_of_lines_user_input %> lines per Scenario:
+These are the tests that have more than <%= @maximum_number_of_lines_user_input %> Steps per Scenario:
 <br><br>
 <% @scenarios_info.each do |scenario| %>
 	<% if scenario[:quantity_of_steps] > @maximum_number_of_lines_user_input.to_i %>
@@ -15,15 +15,16 @@ These are the tests that have more than <%= @maximum_number_of_lines_user_input 
 		</div>
 		<br>
 		<div style="background-color:yellow;border:1px solid black;padding:10px;">
-		<li> Quantity of lines: <%= scenario[:quantity_of_steps] %> </li>
+		<li> Quantity of Steps: <%= scenario[:quantity_of_steps] %> </li>
 		</div>
 		</ul>
 		<br>
 	<% end %>
 <% end %>
-<!-- Fix me here! -->
+<!-- Fix me here!
 <div style="background-color:green;border:1px solid black;padding:10px;">
-<li>You don't have any Scenario with more than <%= @maximum_number_of_lines_user_input %> lines! ;)</li>
+<li>You don't have any Scenario with more than <%= @maximum_number_of_lines_user_input %> steps! ;)</li>
+-->
 </div>
 </body>
 </html>

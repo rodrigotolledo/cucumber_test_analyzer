@@ -1,10 +1,5 @@
 #!/usr/bin/ruby -w
 
-# Flow:
-# 1) User provide maximum size of Scenario (example: 5 lines, 8 lines, 10 lines, etc.)
-# 2) Read each Scenario and count how many lines it has.
-# 3) Send results to Reports module (if Scenario[:number_of_lines] > user_input then BAD, else OK)
-
 require "./file_handler"
 
 class ExtensiveTests < FileHandler
@@ -18,12 +13,12 @@ class ExtensiveTests < FileHandler
 	end
 
 	def print_maximum_number_of_lines_message
-		puts "What's the maximum number of lines considered OK for your Scenarios? (must be between 3 and 30. Example: 3, 8, 20, etc.)"
+		puts "What's the maximum number of Steps considered OK for your Scenarios? (must be between 3 and 30. Example: 3, 8, 20, etc.)"
 		print "> "
 		@maximum_number_of_lines_user_input = gets.chomp
 		if not @maximum_number_of_lines_user_input.match(/\b0*([3-9]|[12][0-9]|30)\b/)
 			system("clear")
-			puts "Invalid entry! Please type a maximum number of lines between 3 and 30."
+			puts "Invalid entry! Please type a maximum number of Steps between 3 and 30."
 			print_maximum_number_of_lines_message
 		end
 	end
@@ -58,51 +53,39 @@ class ExtensiveTests < FileHandler
 		print_feature_files_message
 	end
 
-	#TODO: remove this later!
-	def get_quantity_of_steps(file)
-		lines = File.readlines(file)
-		scenarios = [:name => "", :steps => []]
-		lines.each do |line|
-			line.chomp!
-			next if line.empty?
-			if line.include? "Scenario:"
-				scenarios << {:name => line, :steps => []} 
-				next
-			end 
-			scenarios.last[:steps] << line
+	def count_steps_for_scenario(scenario_line_number, lines)
+		count = 0
+		(scenario_line_number..(lines.size-1)).each do |line_number|
+			break if lines[line_number].chomp.empty?
+			count+=1
 		end
-		scenarios.each do |scenario|
-			if not scenario[:name].empty?
-				puts "#{scenario[:name]} has #{scenario[:steps].size} steps"
-			end
-		end
+		count
 	end
-	
-	#TODO: There is a known issue here when adding non-scenario block to array.
+
 	def get_scenarios_info
-		@scenarios_info = [:scenario_name => "", :quantity_of_steps => []]
+		@scenarios_info = []
 		@all_files.each do |file|
+			ignore_words = ["#","Feature","In order","As a","I want"]   
 			line_counter = 0
+			all_lines = File.readlines(file)
 			File.open(file).each_line do |line|
-				line.chomp!
-				next if line.empty?
 				line_counter = line_counter + 1
+				line.chomp!
+				next if line.empty? || ignore_words.any? { |word| line =~ /#{word}/ }
 				if line.include? "Scenario:"
 					@scenarios_info << {:scenario_name => line, :scenario_line => line_counter, :feature_file => file, :quantity_of_steps => []}
 					next
 				end
-				@scenarios_info.last[:quantity_of_steps] << line
+				quantity_of_steps = count_steps_for_scenario(line_counter, all_lines)	
+				@scenarios_info.last[:quantity_of_steps] << quantity_of_steps
 			end
 		end
-
-		#TODO: fix me here!
 		@scenarios_info.each do |scenario|
-			#		if scenario[:scenario_name] == ""
-			#			@scenarios_info.delete(scenario)
-			#		end
 			scenario[:quantity_of_steps] = scenario[:quantity_of_steps].size
+			if scenario[:scenario_name].empty?
+				@scenarios_info.delete(scenario)
+			end
 		end
-		#TODO: sort by most quantity_of_steps
 		puts @scenarios_info
 	end
 end
