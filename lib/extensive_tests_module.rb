@@ -86,6 +86,18 @@ class ExtensiveTests < FileHandler
 				@scenarios_info.delete(scenario)
 			end
 		end
-		puts @scenarios_info
+		@scenarios_info = parse_scenarios_info(@scenarios_info)
+		@scenarios_info = sort_scenarios_by_quantity_of_steps(@scenarios_info)
+	end
+	
+	def parse_scenarios_info(scenarios_info)
+		scenarios_info.each do |item|
+			item[:scenario_name].gsub!(/[\t|\n]/, "")
+		end
+		return scenarios_info
+	end
+
+	def sort_scenarios_by_quantity_of_steps(scenarios_info)
+		return scenarios_info.sort_by {|scenario| scenario[:quantity_of_steps]}.reverse
 	end
 end
