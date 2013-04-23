@@ -1,4 +1,7 @@
 <html>
+<head>
+<link rel="stylesheet" type="text/css" href="../public/style/global.css">
+</head>
 <body>
 <h1>Assertions Module - Report</h1>
 
@@ -9,15 +12,15 @@ Total of existing tests found: <%= @total_of_existing_tests %>
 Total of assertions found: <%= @total_of_assertions %>
 <br><br>
 <% if @total_of_assertions > @total_of_existing_tests*3 %>
-	<div style="background-color:red;border:1px solid black;padding:10px;">
+	<div class="result bad">	
 	You should spend some time to review your test suite. It seems you have too many assertions!
 	</div>
 <% elsif @total_of_assertions < @total_of_existing_tests %>
-	<div style="background-color:red;border:1px solid black;padding:10px;">
+	<div class="result bad">	
 	You should spend some time to review your test suite. It seems you don't have at least one assertion per test scenario!	
 	</div>
 <% else %>
-	<div style="background-color:green;border:1px solid black;padding:10px;">
+	<div class="result good">
 	It seems your quantity of assertions per test is OK. Good work! ;)
 	</div>
 <% end %>

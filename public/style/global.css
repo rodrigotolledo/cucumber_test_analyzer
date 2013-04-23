@@ -1,0 +1,20 @@
+.result{
+	padding:10px;
+	-webkit-border-radius: 6px 6px 6px 6px;
+	-moz-border-radius: 6px 6px 6px 6px;
+	border-radius: 6px 6px 6px 6px;
+	color:white;
+	display: inline-block;
+}
+
+.good{
+	background-color:#27AE60;
+}
+
+.bad{
+	background-color: #E74C3C;
+}
+
+.warning{
+	background-color: #F1C40F;
+}
