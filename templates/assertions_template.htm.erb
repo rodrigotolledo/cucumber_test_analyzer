@@ -1,15 +1,29 @@
 <html>
 <head>
+<title>Cucumber Test Analyzer - Assertions Module</title>
 <link rel="stylesheet" type="text/css" href="../public/style/global.css">
+<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <h1>Assertions Module - Report</h1>
+<br>
+Maximum quantity of assertions by tests defined by user: 
+<span class="number">
+	<%= @quantity_of_assertions_user_input %>
+</span>
 
-Maximum quantity of assertions by tests defined by user: <%= @quantity_of_assertions_user_input %>
 <br><br>
-Total of existing tests found: <%= @total_of_existing_tests %>
+Total of existing tests found: 
+<span class="number">
+	<%= @total_of_existing_tests %>
+</span>
+
 <br><br>
-Total of assertions found: <%= @total_of_assertions %>
+Total of assertions found: 
+<span class="number">
+	<%= @total_of_assertions %>
+</span>
+
 <br><br>
 <% if @total_of_assertions > @total_of_existing_tests*3 %>
 	<div class="result bad">	

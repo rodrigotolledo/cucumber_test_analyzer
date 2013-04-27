@@ -1,31 +1,45 @@
 <html>
-<body>
-<h1>Extensive Tests Module - Report</h1>
-These are the tests that have more than <%= @maximum_number_of_lines_user_input %> Steps per Scenario:
-<br><br>
-<% @scenarios_info.each do |scenario| %>
-	<% if scenario[:quantity_of_steps] > @maximum_number_of_lines_user_input.to_i %>
-		<ul>
-		<div style="background-color:yellow;border:1px solid black;padding:10px;">
-		<li>Feature file: <%= scenario[:feature_file] %> </li>
-		</div>
-		<br>
-		<div style="background-color:yellow;border:1px solid black;padding:10px;">
-		<li><%= scenario[:scenario_name] %> (line <%= scenario[:scenario_line] %>) </li>
-		</div>
-		<br>
-		<div style="background-color:yellow;border:1px solid black;padding:10px;">
-		<li> Quantity of Steps: <%= scenario[:quantity_of_steps] %> </li>
-		</div>
-		</ul>
-		<br>
+	<head>
+		<title>Cucumber Test Analyzer - Extensive Tests Module</title>
+		<link rel="stylesheet" type="text/css" href="../public/style/global.css">
+		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+	<h1>Extensive Tests Module - Report</h1>
+	<br>
+	These are the tests that have more than 
+	<%= @maximum_number_of_lines_user_input %> Steps per Scenario:
+	<br><br>
+	<% @scenarios_info.each do |scenario| %>
+		<% if scenario[:quantity_of_steps] > @maximum_number_of_lines_user_input.to_i %>
+			<ul>
+			<div class="result dark_green">
+			<li>Feature file: 
+				<span class="number">
+					<%= scenario[:feature_file] %> </li>
+				</span>
+			</div>
+			<br>
+			<div class="result dark_green">
+			<li><%= scenario[:scenario_name] %> (line <%= scenario[:scenario_line] %>) </li>
+			</div>
+			<br>
+			<div class="result dark_green">
+			<li> Quantity of Steps: 
+				<span class="number">
+					<%= scenario[:quantity_of_steps] %> 
+				</span>	
+			</li>
+			</div>
+			</ul>
+			<br>
+		<% end %>
 	<% end %>
-<% end %>
-<!-- Fix me here!
-<div style="background-color:green;border:1px solid black;padding:10px;">
-<li>You don't have any Scenario with more than <%= @maximum_number_of_lines_user_input %> steps! ;)</li>
--->
-</div>
+	<!-- Fix me here!
+	<div style="background-color:green;border:1px solid black;padding:10px;">
+	<li>You don't have any Scenario with more than <%= @maximum_number_of_lines_user_input %> steps! ;)</li>
+	-->
+	</div>
 </body>
 </html>
 
