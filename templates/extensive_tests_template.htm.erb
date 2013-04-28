@@ -21,10 +21,14 @@
 			</div>
 			<br>
 			<div class="result item">
-			<li><%= scenario[:scenario_name] %> (line <%= scenario[:scenario_line] %>) </li>
+			<li><%= scenario[:scenario_name] %> 
+				<span class="number">
+					(line <%= scenario[:scenario_line] %>) 
+				</span>	
+			</li>
 			</div>
 			<br>
-			<div class="result item">
+			<div class="result item warning">
 			<li> Quantity of Steps: 
 				<span class="number">
 					<%= scenario[:quantity_of_steps] %> 
