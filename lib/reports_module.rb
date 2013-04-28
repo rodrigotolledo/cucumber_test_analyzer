@@ -46,4 +46,13 @@ class Reports
 		erb = ERB.new(template_file)
 		File.open("../reports/extensive_tests_report.htm", 'w+') {|file| file.write(erb.result(binding))}
 	end
+
+	def generate_html_report_for_time_frame_tests(time_frame_scenarios, time_frame_user_input)
+		print_user_message
+		@time_frame_scenarios = time_frame_scenarios
+		@time_frame_user_input = time_frame_user_input
+		template_file = File.open("../templates/time_frame_tests_template.htm.erb", 'r').read
+		erb = ERB.new(template_file)
+		File.open("../reports/time_frame_tests_report.htm", 'w+') {|file| file.write(erb.result(binding))}
+	end
 end
