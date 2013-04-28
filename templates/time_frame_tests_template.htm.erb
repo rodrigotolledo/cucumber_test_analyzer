@@ -1,0 +1,24 @@
+<html>
+<body>
+<h1>Time Frame Tests Module - Report</h1>
+These are the tests that fit between the time frame defined by user: <%= @time_frame_user_input[0].to_s + ";" + @time_frame_user_input[1].to_s + @time_frame_user_input[2].to_s %>
+<br><br>
+<% @time_frame_scenarios.each do |scenario| %>
+<ul>
+<div style="background-color:green;border:1px solid black;padding:10px;">
+<li>Feature file: <%= scenario[:feature_file] %> </li>
+</div>
+<br>
+<div style="background-color:green;border:1px solid black;padding:10px;">
+<li><%= scenario[:scenario_name] %> (line <%= scenario[:scenario_line] %>) </li>
+</div>
+<br>
+<div style="background-color:yellow;border:1px solid black;padding:10px;">
+<li> Execution time: <%= scenario[:time] %> </li>
+</div>
+</ul>
+<br>
+<% end %>
+</body>
+</html>
+
