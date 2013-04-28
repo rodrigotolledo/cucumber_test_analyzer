@@ -24,7 +24,7 @@ Welcome to the Cucumber Tests Analyzer!
 	when "4" 
 		system("ruby start_extensive_tests_module.rb")
 	when "5" 
-		puts "Placeholder for 5."
+		system("ruby start_time_frame_tests_module.rb")
 	when "?"
 		puts "Placeholder for Help."
 	else
