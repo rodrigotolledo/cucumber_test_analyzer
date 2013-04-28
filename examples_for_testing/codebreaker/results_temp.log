@@ -1,0 +1,14 @@
+Feature: code-breaker starts game
+  As a code-breaker
+  I want to start a game
+  So that I can break the code
+
+  Scenario: start game                          # features/codebreaker_starts_game.feature:6
+    Given I am not yet playing                  # features/step_definitions/codebreaker_steps.rb:1
+    When I start a new game                     # features/step_definitions/codebreaker_steps.rb:5
+    Then I should see "Welcome to Codebreaker!" # features/step_definitions/codebreaker_steps.rb:10
+    And I should see "Enter guess:"             # features/step_definitions/codebreaker_steps.rb:10
+
+1 scenario (1 passed)
+4 steps (4 passed)
+0m0.007s
