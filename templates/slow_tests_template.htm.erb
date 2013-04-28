@@ -15,7 +15,7 @@
 		<% @scenarios_info.each do |scenario| %>
 			<ul>
 				<div class="result item">
-					<li>Feature file: 
+					<li class="fui-file-24">Feature file: 
 						<span class="number">
 							<%= scenario[:feature_file] %> 
 						</span>
@@ -23,7 +23,7 @@
 				</div>
 				<br>
 				<div class="result item">
-					<li><%= scenario[:scenario_name] %> 
+					<li class="fui-location-24"><%= scenario[:scenario_name] %> 
 						<span class="number">
 							(line <%= scenario[:scenario_line] %>) 
 						</span>
@@ -31,7 +31,7 @@
 				</div>
 				<br>
 				<div class="result item warning">
-					<li> Execution time: 
+					<li class="fui-time-24">Execution time: 
 						<span class="number">
 							<%= scenario[:time] %> 
 						</span>

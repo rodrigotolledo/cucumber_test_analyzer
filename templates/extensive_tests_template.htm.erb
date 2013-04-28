@@ -14,14 +14,14 @@
 		<% if scenario[:quantity_of_steps] > @maximum_number_of_lines_user_input.to_i %>
 			<ul>
 			<div class="result item">
-			<li>Feature file: 
+			<li class="fui-file-24">Feature file: 
 				<span class="number">
 					<%= scenario[:feature_file] %> </li>
 				</span>
 			</div>
 			<br>
 			<div class="result item">
-			<li><%= scenario[:scenario_name] %> 
+			<li class="fui-location-24"><%= scenario[:scenario_name] %> 
 				<span class="number">
 					(line <%= scenario[:scenario_line] %>) 
 				</span>	
@@ -29,7 +29,7 @@
 			</div>
 			<br>
 			<div class="result item warning">
-			<li> Quantity of Steps: 
+			<li class="fui-steps-24">Quantity of Steps: 
 				<span class="number">
 					<%= scenario[:quantity_of_steps] %> 
 				</span>	

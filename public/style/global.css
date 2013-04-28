@@ -55,3 +55,39 @@ ul {
 .warning{
 	background-color: #F1C40F;
 }
+
+@font-face {
+  font-family: "Flat-UI-Icons-24";
+  src: url("../fonts/Flat-UI-Icons-24.eot");
+  src: url("../fonts/Flat-UI-Icons-24.eot?#iefix") format("embedded-opentype"), url("../fonts/Flat-UI-Icons-24.woff") format("woff"), url("../fonts/Flat-UI-Icons-24.ttf") format("truetype"), url("../fonts/Flat-UI-Icons-24.svg#Flat-UI-Icons-24") format("svg");
+  font-weight: normal;
+  font-style: normal; 
+}
+
+.fui-time-24:before, .fui-steps-24:before, .fui-file-24:before, .fui-location-24:before {
+  font-family: "Flat-UI-Icons-24";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased; 
+  color: white;
+  margin-right: 8px;
+}
+
+.fui-time-24:before {
+  content: "\e001"; 
+}
+
+.fui-file-24:before {
+  content: "\e005"; 
+}
+
+.fui-steps-24:before {
+  content: "\e006"; 
+}
+
+.fui-location-24:before {
+  content: "\e00a";
+}
+

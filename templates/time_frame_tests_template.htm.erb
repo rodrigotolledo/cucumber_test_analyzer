@@ -15,15 +15,15 @@
 		<% @time_frame_scenarios.each do |scenario| %>
 		<ul>
 			<div class="result item">
-				<li>Feature file: <%= scenario[:feature_file] %> </li>
+				<li class="fui-file-24">Feature file: <%= scenario[:feature_file] %> </li>
 			</div>
 			<br>
 			<div class="result item">
-				<li><%= scenario[:scenario_name] %> (line <%= scenario[:scenario_line] %>) </li>
+				<li class="fui-location-24"><%= scenario[:scenario_name] %> (line <%= scenario[:scenario_line] %>) </li>
 			</div>
 			<br>
 			<div class="result item warning">
-				<li> Execution time: <%= scenario[:time] %> </li>
+				<li class="fui-time-24">Execution time: <%= scenario[:time] %> </li>
 			</div>
 		</ul>
 		<br>
