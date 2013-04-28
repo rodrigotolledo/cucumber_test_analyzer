@@ -16,6 +16,17 @@ h1 {
 
 ul {
 	list-style-type: none;
+	background-color: #16a085;
+	-webkit-border-radius: 6px 6px 6px 6px;
+	-moz-border-radius: 6px 6px 6px 6px;
+	border-radius: 6px 6px 6px 6px;
+	padding: 10px 10px;
+	display: inline-block;
+}
+
+.item{
+	background-color: #1abc9c;
+	margin: 5px;
 }
 
 .result{
@@ -32,10 +43,6 @@ ul {
 	font-weight: bolder;
 }
 
-.rounded_corners{
-
-}
-
 .good{
 	background-color:#27AE60;
 }
@@ -46,8 +53,4 @@ ul {
 
 .warning{
 	background-color: #F1C40F;
-}
-
-.dark_green{
-	background-color: #27ae60;
 }

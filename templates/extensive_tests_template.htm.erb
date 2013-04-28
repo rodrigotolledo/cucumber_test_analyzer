@@ -13,18 +13,18 @@
 	<% @scenarios_info.each do |scenario| %>
 		<% if scenario[:quantity_of_steps] > @maximum_number_of_lines_user_input.to_i %>
 			<ul>
-			<div class="result dark_green">
+			<div class="result item">
 			<li>Feature file: 
 				<span class="number">
 					<%= scenario[:feature_file] %> </li>
 				</span>
 			</div>
 			<br>
-			<div class="result dark_green">
+			<div class="result item">
 			<li><%= scenario[:scenario_name] %> (line <%= scenario[:scenario_line] %>) </li>
 			</div>
 			<br>
-			<div class="result dark_green">
+			<div class="result item">
 			<li> Quantity of Steps: 
 				<span class="number">
 					<%= scenario[:quantity_of_steps] %> 
