@@ -25,7 +25,7 @@ Total of assertions found:
 </span>
 
 <br><br>
-<% if @total_of_assertions > @total_of_existing_tests*3 %>
+<% if @total_of_assertions > @total_of_existing_tests * @quantity_of_assertions_user_input.to_i %>
 	<div class="result bad">	
 	You should spend some time to review your test suite. It seems you have too many assertions!
 	</div>
