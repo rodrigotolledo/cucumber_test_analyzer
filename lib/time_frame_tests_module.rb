@@ -4,12 +4,11 @@ require "./slow_tests_module"
 require "./reports_module"
 
 class TimeFrameTests < SlowTests
-	attr_accessor(:time_frame_scenarios, :time_frame_user_input, :scenarios_info)
+	attr_accessor(:time_frame_scenarios, :time_frame_user_input)
 
 	def initialize
 		@time_frame_scenarios = time_frame_scenarios
 		@time_frame_user_input = time_frame_user_input
-		@scenarios_info = scenarios_info
 	end
 
 	def print_time_frame_message
@@ -42,24 +41,20 @@ class TimeFrameTests < SlowTests
 		@time_frame_scenarios = []
 		total_time = 0
 
-		#scenarios_info = sort_scenarios_by_slowness(scenarios_info)
-		puts scenarios_info
+		scenarios_info.each do |scenario|
+			scenario[:time_in_seconds] = convert_time_format_to_seconds(scenario[:time])
+		end
 
 		time_frame_user_input_converted = convert_time_frame_user_input_to_time_format(@time_frame_user_input)
 		user_input_max_seconds = convert_time_format_to_seconds(time_frame_user_input_converted)
 
-		#TODO: fix logic here to print the results correctly!
 		scenarios_info.each do |scenario|
-			scenario[:time] = convert_time_format_to_seconds(scenario[:time])
-
-			if(scenario[:time] < user_input_max_seconds && total_time < user_input_max_seconds)
+			if(scenario[:time_in_seconds] < user_input_max_seconds && scenario[:time_in_seconds] + total_time <= user_input_max_seconds)
 				@time_frame_scenarios << scenario
-				total_time = total_time + scenario[:time]
+				total_time = total_time + scenario[:time_in_seconds]
 			end
+			next
 		end
-		puts ">>>>>>>>>>>>>>>>>>>>>> this is @time_frame_scenarios >>>>>>>>>>>>>>"
-		puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-		puts @time_frame_scenarios
 	end
 
 	def convert_time_format_to_seconds(time_format)
