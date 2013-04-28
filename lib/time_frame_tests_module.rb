@@ -4,9 +4,10 @@ require "./slow_tests_module"
 require "./reports_module"
 
 class TimeFrameTests < SlowTests
-	attr_accessor(:time_frame_user_input, :scenarios_info)
+	attr_accessor(:time_frame_scenarios, :time_frame_user_input, :scenarios_info)
 
 	def initialize
+		@time_frame_scenarios = time_frame_scenarios
 		@time_frame_user_input = time_frame_user_input
 		@scenarios_info = scenarios_info
 	end
@@ -41,13 +42,14 @@ class TimeFrameTests < SlowTests
 		@time_frame_scenarios = []
 		total_time = 0
 
-		scenarios_info = sort_scenarios_by_slowness(scenarios_info)
+		#scenarios_info = sort_scenarios_by_slowness(scenarios_info)
 		puts scenarios_info
+
+		time_frame_user_input_converted = convert_time_frame_user_input_to_time_format(@time_frame_user_input)
+		user_input_max_seconds = convert_time_format_to_seconds(time_frame_user_input_converted)
 
 		#TODO: fix logic here to print the results correctly!
 		scenarios_info.each do |scenario|
-			time_frame_user_input_converted = convert_time_frame_user_input_to_time_format(@time_frame_user_input)
-			user_input_max_seconds = convert_time_format_to_seconds(time_frame_user_input_converted)
 			scenario[:time] = convert_time_format_to_seconds(scenario[:time])
 
 			if(scenario[:time] < user_input_max_seconds && total_time < user_input_max_seconds)
@@ -83,18 +85,3 @@ class TimeFrameTests < SlowTests
 		return scenarios_info.sort_by {|scenario| scenario[:time]}.reverse
 	end
 end
-
-timeFrame = TimeFrameTests.new
-timeFrame.print_user_interaction
-
-slowTests = SlowTests.new
-slowTests.print_user_interaction
-slowTests.open_files(slowTests.feature_files_path, "feature")
-slowTests.get_scenarios_info 
-slowTests.run_scenarios
-
-timeFrame.verify_scenarios_info_time_frame(slowTests.scenarios_info)
-
-Dir.chdir(slowTests.current_directory)
-reports = Reports.new
-reports.generate_html_report_for_slow_tests(slowTests.scenarios_info)
