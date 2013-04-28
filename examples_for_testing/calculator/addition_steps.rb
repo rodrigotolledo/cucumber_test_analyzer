@@ -18,7 +18,7 @@ end
 
 When /^I click (\w+)$/ do |op|
 	@result = @calculator.op(op)
-	sleep(5)
+	sleep(2)
 end
 
 Then /^the result should be (\d+) on the screen$/ do |n|
