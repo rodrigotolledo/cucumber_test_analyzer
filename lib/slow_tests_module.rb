@@ -57,6 +57,7 @@ class SlowTests < FileHandler
 		end
 		@scenarios_info = parse_scenarios_info(@scenarios_info)
 		@scenarios_info = sort_scenarios_by_slowness(@scenarios_info)
+		#puts @scenarios_info
 	end
 
 	def parse_scenarios_info(scenarios_info)
