@@ -7,12 +7,20 @@
 	<body>
 	<h1>Extensive Tests Module - Report</h1>
 	<br>
-	These are the tests that have more than 
-	<span class="number">
-		<%= @maximum_number_of_lines_user_input %> 
-	</span>
-		steps per Scenario:
+	<% @no_test_with_more_steps_than_specified = true %>
+	<% @scenarios_info.each do |scenario| %>
+		<% if scenario[:quantity_of_steps] > @maximum_number_of_lines_user_input.to_i %>
+		<% @no_test_with_more_steps_than_specified = false %>
+		<% end %>
+	<% end %>	
+	<% if not @no_test_with_more_steps_than_specified %>
+		These are the tests that have more than 
+		<span class="number">
+			<%= @maximum_number_of_lines_user_input %> 
+		</span>
+			steps per Scenario:
 	<br><br>
+	<% end %>
 	<% @no_test_with_more_steps_than_specified = true %>
 	<% @scenarios_info.each do |scenario| %>
 		<% if scenario[:quantity_of_steps] > @maximum_number_of_lines_user_input.to_i %>
