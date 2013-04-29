@@ -1,3 +1,9 @@
+@font-face {
+	font-family: Lato;
+	src: url( "../public/fonts/Lato-Regular.ttf");
+}
+
+
 body {
 	font: 18px/1.231 "Lato", sans-serif;
 	padding: 0 15px 10px 15px;
@@ -13,6 +19,7 @@ h1 {
 	-moz-border-radius: 6px 6px 6px 6px;
 	border-radius: 6px 6px 6px 6px;
 	display: inline-block;
+	font-weight: normal;
 }
 
 ul {
@@ -23,6 +30,7 @@ ul {
 	border-radius: 6px 6px 6px 6px;
 	padding: 10px 10px;
 	width: 60%;
+	margin-bottom: 25px;
 }
 
  .no-bullet{
@@ -45,8 +53,8 @@ ul {
 }
 
 .number{
-	font-size: 22px;
-	font-weight: bolder;
+	font-size: 20px;
+	font-weight: bold;
 }
 
 .good{

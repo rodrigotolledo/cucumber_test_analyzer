@@ -2,16 +2,13 @@
 	<head>
 		<title>Cucumber Test Analyzer - Slow Tests Module</title>
 		<link rel="stylesheet" type="text/css" href="../public/style/global.css">
-		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
 		<h1>Slow Tests Module - Report</h1>
 		
 		<br>
-		<span>These are the execution time of your Test Scenarios. They are listed by slowness:</span>
-		
-		<br><br>
-		
+		<span>These are the execution time of your Test Scenarios. They are listed by slowness:</span>	
+		<br>
 		<% @scenarios_info.each do |scenario| %>
 			<ul>
 				<div class="result item">
@@ -38,7 +35,6 @@
 					</li>
 				</div>
 			</ul>
-		<br>
 		<% end %>
 	</body>
 </html>

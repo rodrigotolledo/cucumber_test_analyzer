@@ -2,7 +2,6 @@
 	<head>
 		<title>Cucumber Test Analyzer - Time Frame Tests Module</title>
 		<link rel="stylesheet" type="text/css" href="../public/style/global.css">
-		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
 		<h1>Time Frame Tests Module - Report</h1>
@@ -11,7 +10,7 @@
 		<span class="number">
 			<%= @time_frame_user_input[0].to_s + ";" + @time_frame_user_input[1].to_s + @time_frame_user_input[2].to_s %>
 		</span>
-		<br><br>
+		<br>
 		<% @time_frame_scenarios.each do |scenario| %>
 		<ul>
 			<div class="result item">
@@ -26,7 +25,6 @@
 				<li class="fui-time-24"> Execution time: <%= scenario[:time] %> </li>
 			</div>
 		</ul>
-		<br>
 		<% end %>
 	</body>
 </html>
