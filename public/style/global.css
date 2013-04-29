@@ -25,6 +25,10 @@ ul {
 	display: inline-block;
 }
 
+ .no-bullet{
+ 	list-style-type: none;
+ }
+
 .item{
 	background-color: #1abc9c;
 	margin: 5px;
@@ -64,7 +68,16 @@ ul {
   font-style: normal; 
 }
 
-.fui-time-24:before, .fui-steps-24:before, .fui-file-24:before, .fui-location-24:before {
+[data-icon]:before {
+  font-family: "Flat-UI-Icons-24";
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased; 
+}
+
+.fui-time-24:before, .fui-steps-24:before, .fui-file-24:before, .fui-location-24:before, .fui-checkmark-24:before {
   font-family: "Flat-UI-Icons-24";
   speak: none;
   font-style: normal;
@@ -89,5 +102,9 @@ ul {
 
 .fui-location-24:before {
   content: "\e00a";
+}
+
+.fui-checkmark-24:before {
+  content: "\e010";
 }
 

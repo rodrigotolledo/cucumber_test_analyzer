@@ -8,10 +8,15 @@
 	<h1>Extensive Tests Module - Report</h1>
 	<br>
 	These are the tests that have more than 
-	<%= @maximum_number_of_lines_user_input %> Steps per Scenario:
+	<span class="number">
+		<%= @maximum_number_of_lines_user_input %> 
+	</span>
+		steps per Scenario:
 	<br><br>
+	<% @no_test_with_more_steps_than_specified = true %>
 	<% @scenarios_info.each do |scenario| %>
 		<% if scenario[:quantity_of_steps] > @maximum_number_of_lines_user_input.to_i %>
+		<% @no_test_with_more_steps_than_specified = false %>
 			<ul>
 			<div class="result item">
 			<li class="fui-file-24">Feature file: 
@@ -39,10 +44,12 @@
 			<br>
 		<% end %>
 	<% end %>
-	<!-- Fix me here!
-	<div style="background-color:green;border:1px solid black;padding:10px;">
-	<li>You don't have any Scenario with more than <%= @maximum_number_of_lines_user_input %> steps! ;)</li>
-	-->
+
+	<% if @no_test_with_more_steps_than_specified %>
+		<div class="result good">
+		<li class="no-bullet fui-checkmark-24">You don't have any Scenario with more than <%= @maximum_number_of_lines_user_input %> steps! ;)</li>
+	<% end%>	
+	
 	</div>
 </body>
 </html>
