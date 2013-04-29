@@ -5,6 +5,8 @@
 .bundle
 .config
 .lock
+.DS_Store
+Gemfile.lock
 coverage
 InstalledFiles
 lib/bundler/man
@@ -19,3 +21,4 @@ tmp
 .yardoc
 _yardoc
 doc/
+reports/
