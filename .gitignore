@@ -21,4 +21,5 @@ tmp
 .yardoc
 _yardoc
 doc/
-reports/
+reports/**/*
+
