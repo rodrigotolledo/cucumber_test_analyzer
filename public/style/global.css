@@ -22,7 +22,7 @@ ul {
 	-moz-border-radius: 6px 6px 6px 6px;
 	border-radius: 6px 6px 6px 6px;
 	padding: 10px 10px;
-	display: inline-block;
+	width: 60%;
 }
 
  .no-bullet{
@@ -32,6 +32,7 @@ ul {
 .item{
 	background-color: #1abc9c;
 	margin: 5px;
+	width: 96%;
 }
 
 .result{
