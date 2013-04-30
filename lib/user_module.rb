@@ -1,16 +1,20 @@
 #!/usr/bin/ruby -w
 
 def print_welcome_message
-	system("clear")
+	# system("clear")
 	puts "
-Welcome to the Cucumber Tests Analyzer!
-  Type the number of the Module you'd like to use:
-  [1] Pending Tests
-  [2] Assertions
-  [3] Slow Tests
-  [4] Extensive Tests
-  [5] Time Frame Tests
-  [?] Help
+ ______________________________________________________
+|                                                      |
+| Welcome to the Cucumber Tests Analyzer!              |
+|   Type the number of the Module you'd like to use:   |
+|   [1] Pending Tests                                  |
+|   [2] Assertions                                     |
+|   [3] Slow Tests                                     |
+|   [4] Extensive Tests                                |
+|   [5] Time Frame Tests                               |
+|   [?] Help                                           |
+|   [q] Quit                                           |
+|______________________________________________________|
 	"
 	print "> "
 	@option_selected = gets.chomp
@@ -32,6 +36,8 @@ Welcome to the Cucumber Tests Analyzer!
 		puts "Slow Tests Module - it will run each test and organize them by slowness."
 		puts "Extensive Tests Module - it will help to identify tests that have more steps than defined by user."
 		puts "Time Frame Tests Module - it will run each test and identify which of them are between a time frame defined by user."
+	when "q"
+		abort('Aborting...')
 	else
 		system("clear")
 		puts "This option doesn't exist. Type '?' for help."
@@ -39,4 +45,8 @@ Welcome to the Cucumber Tests Analyzer!
 	end
 end
 
-print_welcome_message
+system("clear")
+
+while true
+ 	print_welcome_message
+end
