@@ -8,24 +8,36 @@
 		<br>
 		These are the tests that fit between the time frame defined by user: 
 		<span class="number">
-			<%= @time_frame_user_input[0].to_s + ";" + @time_frame_user_input[1].to_s + @time_frame_user_input[2].to_s %>
+			<% @time_unit = @time_frame_user_input[2].to_s %>
+			<%= @time_frame_user_input[0].to_s + @time_unit.to_s + " - " + @time_frame_user_input[1].to_s + @time_unit %>
 		</span>
 		<br>
 		<% @time_frame_scenarios.each do |scenario| %>
 		<ul>
 			<div class="result item">
-				<li class="fui-file-24">Feature file: <%= scenario[:feature_file] %> </li>
+				<li class="fui-file-24">Feature file: 
+					<span class="number">
+						<%= scenario[:feature_file] %> 
+					</span>
+				</li>
 			</div>
 			<br>
 			<div class="result item">
-				<li class="fui-steps-24"><%= scenario[:scenario_name] %> (line <%= scenario[:scenario_line] %>) </li>
+				<li class="fui-steps-24"><%= scenario[:scenario_name] %> 
+					<span class="number">
+						(line <%= scenario[:scenario_line] %>) 
+					</span>
+				</li>
 			</div>
 			<br>
 			<div class="result item warning">
-				<li class="fui-time-24"> Execution time: <%= scenario[:time] %> </li>
+				<li class="fui-time-24"> Execution time: 
+					<span class="number">
+						<%= scenario[:time] %> 
+					</span>
+				</li>	
 			</div>
 		</ul>
 		<% end %>
 	</body>
 </html>
-
