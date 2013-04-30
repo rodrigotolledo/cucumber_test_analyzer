@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
 gem 'cucumber', '1.2.3'
+gem 'gherkin', '<= 2.11.6'
 gem 'rspec'
 gem 'rake'
