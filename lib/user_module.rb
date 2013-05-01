@@ -30,6 +30,7 @@ def print_welcome_message
 	when "5" 
 		system("ruby start_time_frame_tests_module.rb")
 	when "?"
+		puts ""
 		puts "Cucumber Test Analyzer - Help"
 		puts "Pending Tests Module - it will help you analyze percentage of pending tests."
 		puts "Assertions Module - it will help you analyze overall quantity of tests and assertions."

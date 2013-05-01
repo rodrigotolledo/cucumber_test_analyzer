@@ -7,6 +7,7 @@ class FileHandler
 		Dir.chdir(files_path)
 		@all_files = Dir.glob("**/*.#{files_format}")
 		if files_format == "rb"
+			puts ""
 			puts "Step Definitions files to be analyzed: #{@all_files}."
 		elsif files_format == "feature"
 			puts "Feature files to be analyzed: #{@all_files}."
