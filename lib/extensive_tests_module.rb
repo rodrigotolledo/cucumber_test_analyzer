@@ -65,7 +65,8 @@ class ExtensiveTests < FileHandler
 	def get_scenarios_info
 		@scenarios_info = []
 		@all_files.each do |file|
-			ignore_words = ["#","Feature","In order","As a","I want"]   
+			ignore_words = ["@javascript","@wip","@aspects","Feature","In order","As a","I want"]   
+			#ignore_words = ["#","Feature","In order","As a","I want"]   
 			line_counter = 0
 			all_lines = File.readlines(file)
 			File.open(file).each_line do |line|
