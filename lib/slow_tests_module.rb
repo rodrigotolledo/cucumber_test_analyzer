@@ -50,9 +50,16 @@ class SlowTests < FileHandler
 	end
 
 	def run_scenarios
+
+		# Hack to install Diaspora Project's dependencies
+		# system("cd /Users/Thoughtworks/Documents/my_stuff/TCC2-here-we-go/projects_for_testing/diaspora && bundle install")
+
 		@scenarios_info.each do |scenario_info|	
-			system("cucumber #{scenario_info[:feature_file]}:#{scenario_info[:scenario_line]} > results_temp.log")
-			results = File.open("results_temp.log")
+			
+			# Hack to run Cucumber against Diaspora Project
+			system("cd #{@feature_files_path} && cd .. && bundle exec cucumber features/#{scenario_info[:feature_file]}:#{scenario_info[:scenario_line]} > #{@current_directory}/results_temp.log")
+			# system("cucumber #{scenario_info[:feature_file]}:#{scenario_info[:scenario_line]} > results_temp.log")
+			results = File.open("#{@current_directory}/results_temp.log")
 			scenario_info[:time] = results.readlines.last
 		end
 		@scenarios_info = parse_scenarios_info(@scenarios_info)
