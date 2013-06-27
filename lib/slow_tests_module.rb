@@ -55,7 +55,7 @@ class SlowTests < FileHandler
 		# system("cd /Users/Thoughtworks/Documents/my_stuff/TCC2-here-we-go/projects_for_testing/diaspora && bundle install")
 
 		@scenarios_info.each do |scenario_info|	
-			
+
 			# Hack to run Cucumber against Diaspora Project
 			system("cd #{@feature_files_path} && cd .. && bundle exec cucumber features/#{scenario_info[:feature_file]}:#{scenario_info[:scenario_line]} > #{@current_directory}/results_temp.log")
 			# system("cucumber #{scenario_info[:feature_file]}:#{scenario_info[:scenario_line]} > results_temp.log")
@@ -76,6 +76,6 @@ class SlowTests < FileHandler
 	end
 
 	def sort_scenarios_by_slowness(scenarios_info)
-		return scenarios_info.sort_by {|scenario| scenario[:time]}.reverse
+		return scenarios_info.sort_by{|scenario| scenario[:time].scan(/[\d.]+/).map(&:to_f)}.reverse
 	end
 end
